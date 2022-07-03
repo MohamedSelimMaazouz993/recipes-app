@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Connexion from './components/Connexion';
+import NotFound from './components/NotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route exact path='/' element={<Connexion/>} />
+      <Route path='/pseudo/:pseudo' element={<App/>} />
+      <Route element={<NotFound/>} />
+    </Routes>
+  </BrowserRouter>
   </React.StrictMode>
 );
 
